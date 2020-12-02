@@ -1,20 +1,21 @@
-import sys
-
 from itertools import combinations
 from functools import reduce
 
 
-def main():
-    input_file_name = 'input'
-    n = int(sys.argv[1])
+def combination_product(numbers, n):
+    combs = combinations(numbers, n)
+    filtered = list(filter(lambda c: sum(c) == 2020, combs))
+    return reduce(lambda x, y: x*y, filtered[0])
 
-    with open(input_file_name) as f:
+
+def main():
+    with open('input') as f:
         lines = f.read().splitlines()
 
-    combs = list(combinations(map(int, lines), n))
-    for comb in combs:
-        if sum(comb) == 2020:
-            print(reduce(lambda x, y: x*y, comb))
+    numbers = list(map(int, lines))
+
+    print("--- Part One ---", combination_product(numbers, 2), sep='\n')
+    print("--- Part Two ---", combination_product(numbers, 3), sep='\n')
 
 
 if __name__ == "__main__":

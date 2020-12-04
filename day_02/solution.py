@@ -5,7 +5,7 @@ def main():
     with open('input') as f:
         lines = f.read().splitlines()
 
-    regexp = r'([0-9]+)-([0-9]+)\s([a-z]):\s([a-z]+)$'
+    regexp = r'([0-9]+)-([0-9]+)\s(\S):\s(\S+)$'
     def match(l): return re.match(regexp, l)
     def explode(m): return (int(m.group(1)), int(m.group(2)), m.group(3), m.group(4))
     passwds = list(map(explode, map(match, lines)))

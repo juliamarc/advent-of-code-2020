@@ -38,11 +38,11 @@ def main():
 
     keys_only = list(map(lambda p: list(map(lambda f: f[0], p)), passports))
     def fields_present(k): return set(req_fields).issubset(set(k))
-    are_fields_present = list(map(lambda k: fields_present(k), keys_only))
+    are_fields_present = list(map(fields_present, keys_only))
 
     passports_fields_present = compress(passports, are_fields_present)
     def fields_valid(f): return all(map(lambda kv: fields[kv[0]](kv[1]), f))
-    are_fields_valid = map(lambda p: fields_valid(p), passports_fields_present)
+    are_fields_valid = map(fields_valid, passports_fields_present)
 
     print("--- Part One ---", sum(are_fields_present), sep='\n')
     print("--- Part Two ---", sum(are_fields_valid), sep='\n')

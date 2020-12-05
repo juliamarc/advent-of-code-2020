@@ -36,7 +36,7 @@ def main():
     regexp = r'([\S]{3}):(\S+)[\n\s]*?'
     passports = list(map(lambda l: re.findall(regexp, l), lines))
 
-    keys_only = list(map(lambda p: list(map(lambda f: f[0], p)), passports))
+    keys_only = map(lambda p: list(map(lambda f: f[0], p)), passports)
     def fields_present(k): return set(req_fields).issubset(set(k))
     are_fields_present = list(map(fields_present, keys_only))
 

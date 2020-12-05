@@ -7,8 +7,8 @@ def main():
     with open('input') as f:
         lines = f.read().splitlines()
 
-    ids = list(map(lambda s: s[0] * 8 + s[1], map(lambda s: decode(s), lines)))
-    my_id = sorted(set(range(min(ids), max(ids) + 1)).difference(ids))[0]
+    ids = list(map(lambda s: s[0] * 8 + s[1], map(decode, lines)))
+    my_id = list(set(range(min(ids), max(ids) + 1)).difference(ids))[0]
 
     print("--- Part One ---", max(ids), sep='\n')
     print("--- Part Two ---", my_id, sep='\n')

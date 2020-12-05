@@ -4,8 +4,8 @@ from functools import reduce
 
 def combination_product(numbers, n):
     combs = combinations(numbers, n)
-    filtered = list(filter(lambda c: sum(c) == 2020, combs))
-    return reduce(lambda x, y: x*y, filtered[0])
+    filtered = next(filter(lambda c: sum(c) == 2020, combs))
+    return reduce(lambda x, y: x*y, filtered)
 
 
 def main():

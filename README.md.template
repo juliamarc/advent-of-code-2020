@@ -8,8 +8,8 @@ https://adventofcode.com/2020
 * Very mild [code golfing](https://en.wikipedia.org/wiki/Code_golf).
 * Don't anger `flake8` too much.
 
-## Stats
+### Stats
 
-Day | LOC | `flake8` | `for`
---- | --- | --- | ---
+Day | LOC | `flake8` | `for` | `while`
+--- | --- | --- | --- | ---
 sed-day-stats

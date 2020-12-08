@@ -13,8 +13,9 @@ for dir in day_*; do
     loc=$(wc -l < $solution)
     flake=$(flake8 $solution | wc -l)
     fors=$(grep -E '(\s|^)for(\s|$)' $solution | wc -l)
+    whiles=$(grep -E '(\s|^)while(\s|$)' $solution | wc -l)
     day_num=$(echo ${dir: -2} | bc)
-    line="$day_num | $loc | $flake | $fors"
+    line="$day_num | $loc | $flake | $fors | $whiles"
     sed -i "/$stats_match/i $line" $readme
 done
 
